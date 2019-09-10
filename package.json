@@ -1,0 +1,23 @@
+{
+  "name": "old-money",
+  "version": "0.0.1",
+  "description": "Busy Works Still Kickin' It!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fix": "standard --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinimalistYing/OldMoney.git"
+  },
+  "author": "MinimalistYing",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MinimalistYing/OldMoney/issues"
+  },
+  "homepage": "https://github.com/MinimalistYing/OldMoney#readme",
+  "devDependencies": {
+    "standard": "^14.1.0"
+  }
+}
