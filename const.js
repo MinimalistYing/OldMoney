@@ -25,5 +25,16 @@ exports.ALIAS = {
   dividend: '股息率',
   float_market_capital: '流通市值',
   market_capital: '总市值',
-  volume_ratio: '量比'
+  volume_ratio: '量比',
+
+  buy1: '买一',
+  buy2: '买二',
+  buy3: '买三',
+  buy4: '买四',
+  buy5: '买五',
+  sell1: '卖一',
+  sell2: '卖二',
+  sell3: '卖三',
+  sell4: '卖四',
+  sell5: '卖五'
 }

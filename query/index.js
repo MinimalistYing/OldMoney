@@ -44,3 +44,25 @@ exports.quote = async function (symbol) {
     }
   }
 }
+
+exports.pankou = async function (symbol) {
+  const data = await source.pankou(symbol)
+  const arr = data.split(',')
+  return {
+    open: arr[1], // 今开
+    last_close: arr[2], // 昨收
+    current: arr[3], // 当前价
+    high: arr[3], // 最高
+    low: arr[3], // 最低
+    buy1: arr[11] + ' - ' + arr[10], // 买一
+    buy2: arr[13] + ' - ' + arr[12], // 买二
+    buy3: arr[15] + ' - ' + arr[14], // 买二
+    buy4: arr[17] + ' - ' + arr[16], // 买二
+    buy5: arr[19] + ' - ' + arr[18], // 买二
+    sell1: arr[21] + ' - ' + arr[20], // 卖一
+    sell2: arr[23] + ' - ' + arr[22], // 卖二
+    sell3: arr[25] + ' - ' + arr[24], // 卖三
+    sell4: arr[27] + ' - ' + arr[26], // 卖四
+    sell5: arr[29] + ' - ' + arr[28] // 卖五
+  }
+}

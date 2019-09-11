@@ -7,8 +7,8 @@ function log (data) {
     console.log(label + ': ' + data[key])
   })
 }
-query.quote('SH601988').then(data => log(data))
-// query.pankou('SH601519').then(data => console.log(data))
+// query.quote('SH601988').then(log)
+query.pankou('SH601519').then(log)
 
 // query.margin('SH601519').then(data => console.log(data))
 // query.flow('SH601519').then(data => console.log(data))
