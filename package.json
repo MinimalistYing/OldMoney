@@ -19,5 +19,9 @@
   "homepage": "https://github.com/MinimalistYing/OldMoney#readme",
   "devDependencies": {
     "standard": "^14.1.0"
+  },
+  "dependencies": {
+    "bape": "^1.1.8",
+    "moment": "^2.24.0"
   }
 }
