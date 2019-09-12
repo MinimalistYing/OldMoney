@@ -27,7 +27,7 @@ exports.quote = async function (symbol) {
       turnover_rate: quote.turnover_rate, // 换手率
       volume: quote.volume, // 成交量
       time: moment(quote.timestamp).format('YYYY-MM-DD HH:mm:ss'), // 当前行情的时间
-      pankou_ratio: others.pankou_ratio, // 委比
+      pankou_scale: others.pankou_ratio, // 委比
       amplitude: quote.amplitude, // 振幅
       dividend: quote.dividend_yield, // 股息率
       float_market_capital: quote.float_market_capital, // 流通市值
@@ -40,7 +40,7 @@ exports.quote = async function (symbol) {
       // 量比达5-10倍，则为剧烈放量
       // 量比达到10倍以上的股票，一般可以考虑反向操作
       // 量比达到20倍以上的情形基本上每天都有一两单，是极端放量的一种表现
-      volume_ratio: quote.volume_ratio
+      volume_scale: quote.volume_ratio
     }
   }
 }
@@ -150,24 +150,40 @@ exports.cashflow = async function (symbol, param) {
 
 exports.indicator = async function (symbol, param) {
   const data = await source.indicator(symbol, param)
-  console.log(JSON.stringify(data))
   if (data.error_code === 0) { // 请求成功
     return data.data.list.map(item => ({
       time: moment(item.report_date).format('YYYY-MM-DD HH:mm:ss'),
       name: `${data.data.quote_name}${item.report_name}`,
       roe: item.avg_roe[0], // 净资产收益率
-      roe_ratio: item.avg_roe[1], // 净资产收益率同比
+      roe_ratio: item.avg_roe[1],
       np_per_share: item.np_per_share[0], // 每股净资产
-      np_per_share_ratio: item.np_per_share[1], // 每股净资产同比
+      np_per_share_ratio: item.np_per_share[1],
       // 每股现金流为负时说明入不敷出
       operate_cash_flow_ps: item.operate_cash_flow_ps[0], // 每股现金流
-      operate_cash_flow_ps_ratio: item.operate_cash_flow_ps[1], // 每股现金流同比
+      operate_cash_flow_ps_ratio: item.operate_cash_flow_ps[1],
       capital_reserve: item.capital_reserve[0], // 每股资本公积金
-      capital_reserve_ratio: item.capital_reserve[1], // 每股资本公积金同比
+      capital_reserve_ratio: item.capital_reserve[1],
       undistri_profit_ps: item.undistri_profit_ps[0], // 每股未分配利润
-      undistri_profit_ps_ratio: item.undistri_profit_ps[1], // 每股未分配利润同比
+      undistri_profit_ps_ratio: item.undistri_profit_ps[1],
       net_selling_rate: item.net_selling_rate[0], // 净利率
-      net_selling_rate_ratio: item.net_selling_rate[1] // 净利率同比
+      net_selling_rate_ratio: item.net_selling_rate[1]
+    }))
+  }
+}
+
+exports.balance = async function (symbol, param) {
+  const data = await source.balance(symbol, param)
+  console.log(JSON.stringify(data))
+  if (data.error_code === 0) { // 请求成功
+    return data.data.list.map(item => ({
+      time: moment(item.report_date).format('YYYY-MM-DD HH:mm:ss'),
+      name: `${data.data.quote_name}${item.report_name}`,
+      assets: item.total_assets[0], // 资产
+      assets_ratio: item.total_assets[1],
+      liabilities: item.total_liab[0], // 负债
+      liabilities_ratio: item.total_liab[1],
+      asset_liab: item.asset_liab_ratio[0], // 负债率
+      asset_liab_ratio: item.asset_liab_ratio[1]
     }))
   }
 }

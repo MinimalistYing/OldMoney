@@ -5,14 +5,24 @@ function log (data) {
   if (Array.isArray(data)) {
     for (const o of data) {
       Object.keys(o).map(key => {
+        let suffix = ''
+        if (key.endsWith('_ratio')) {
+          key = key.slice(0, key.length - 6)
+          suffix = '同比'
+        }
         const label = ALIAS[key] || key
-        console.log(label + ': ' + o[key])
+        console.log(label + suffix + ': ' + o[key])
       })
     }
   } else {
     Object.keys(data).map(key => {
+      let suffix = ''
+      if (key.endsWith('_ratio')) {
+        key = key.slice(0, key.length - 6)
+        suffix = '同比'
+      }
       const label = ALIAS[key] || key
-      console.log(label + ': ' + data[key])
+      console.log(label + suffix + ': ' + data[key])
     })
   }
 }
@@ -34,11 +44,14 @@ function log (data) {
 //   is_annals: 0,
 //   count: 10
 // }).then(log)
-query.indicator('SH601988', {
+// query.indicator('SH601988', {
+//   is_annals: 0,
+//   count: 10
+// }).then(log)
+query.balance('SH601988', {
   is_annals: 0,
   count: 10
 }).then(log)
-// query.balance('SH601988').then(data => console.log(data))
 // query.income('SH601988').then(data => console.log(data))
 // query.business('SH601988').then(data => console.log(data))
 

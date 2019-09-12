@@ -20,12 +20,12 @@ exports.ALIAS = {
   turnover_rate: '换手率',
   volume: '成交量',
   time: '时间',
-  pankou_ratio: '委比',
+  pankou_scale: '委比',
   amplitude: '振幅',
   dividend: '股息率',
   float_market_capital: '流通市值',
   market_capital: '总市值',
-  volume_ratio: '量比',
+  volume_scale: '量比',
 
   buy1: '买一',
   buy2: '买二',
@@ -58,22 +58,17 @@ exports.ALIAS = {
   capital_total: '总资金流入/流出',
 
   ncf_from_oa: '经营活动产生的现金流',
-  ncf_from_oa_ratio: '经营活动产生的现金流同比',
   ncf_from_ia: '投资活动产生的现金流',
-  ncf_from_ia_ratio: '投资活动产生的现金流同比',
   ncf_from_fa: '筹资活动产生的现金流',
-  ncf_from_fa_ratio: '筹资活动产生的现金流同比',
 
   roe: '净资产收益率',
-  roe_ratio: '净资产收益率同比',
   np_per_share: '每股净资产',
-  np_per_share_ratio: '每股净资产同比',
   operate_cash_flow_ps: '每股现金流',
-  operate_cash_flow_ps_ratio: '每股现金流同比',
   capital_reserve: '每股资本公积金',
-  capital_reserve_ratio: '每股资本公积金同比',
   undistri_profit_ps: '每股未分配利润',
-  undistri_profit_ps_ratio: '每股未分配利润同比',
   net_selling_rate: '净利率',
-  net_selling_rate_ratio: '净利率同比'
+
+  assets: '总资产',
+  liabilities: '总负债',
+  asset_liab: '负债率'
 }
