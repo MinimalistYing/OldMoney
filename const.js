@@ -70,5 +70,8 @@ exports.ALIAS = {
 
   assets: '总资产',
   liabilities: '总负债',
-  asset_liab: '负债率'
+  asset_liab: '负债率',
+
+  profit: '营业利润',
+  income: '营业总收入'
 }

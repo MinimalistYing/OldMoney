@@ -173,7 +173,6 @@ exports.indicator = async function (symbol, param) {
 
 exports.balance = async function (symbol, param) {
   const data = await source.balance(symbol, param)
-  console.log(JSON.stringify(data))
   if (data.error_code === 0) { // 请求成功
     return data.data.list.map(item => ({
       time: moment(item.report_date).format('YYYY-MM-DD HH:mm:ss'),
@@ -184,6 +183,21 @@ exports.balance = async function (symbol, param) {
       liabilities_ratio: item.total_liab[1],
       asset_liab: item.asset_liab_ratio[0], // 负债率
       asset_liab_ratio: item.asset_liab_ratio[1]
+    }))
+  }
+}
+
+exports.income = async function (symbol, param) {
+  const data = await source.income(symbol, param)
+  console.log(JSON.stringify(data))
+  if (data.error_code === 0) { // 请求成功
+    return data.data.list.map(item => ({
+      time: moment(item.report_date).format('YYYY-MM-DD HH:mm:ss'),
+      name: `${data.data.quote_name}${item.report_name}`,
+      profit: item.op[0], // 营业利润
+      profit_ratio: item.op[1],
+      income: item.total_revenue[0], // 营业总收入
+      income_ratio: item.total_revenue[1]
     }))
   }
 }
