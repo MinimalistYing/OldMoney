@@ -130,3 +130,20 @@ exports.history = async function (symbol, param) {
     }))
   }
 }
+
+exports.cashflow = async function (symbol, param) {
+  const data = await source.cashflow(symbol, param)
+  console.log(JSON.stringify(data))
+  if (data.error_code === 0) { // 请求成功
+    return data.data.list.map(item => ({
+      time: moment(item.report_date).format('YYYY-MM-DD HH:mm:ss'),
+      name: `${data.data.quote_name}${item.report_name}`,
+      ncf_from_oa: item.ncf_from_oa[0], // 经营活动产生的现金流
+      ncf_from_oa_ratio: item.ncf_from_oa[1], // 经营活动产生的现金流同比
+      ncf_from_ia: item.ncf_from_ia[0], // 投资活动产生的现金流
+      ncf_from_ia_ratio: item.ncf_from_ia[1], // 投资活动产生的现金流同比
+      ncf_from_fa: item.ncf_from_fa[0], // 筹资活动产生的现金流
+      ncf_from_fa_ratio: item.ncf_from_fa[1] // 筹资活动产生的现金流同比
+    }))
+  }
+}

@@ -26,12 +26,15 @@ function log (data) {
 // query.flow('SH601988').then(log)
 // query.blocktrans('SH601988').then(log)
 // query.assort('SH601988').then(log)
-query.history('SH601988', {
-  count: 100
-}).then(log)
+// query.history('SH601988', {
+//   count: 100
+// }).then(log)
 
-// query.cashflow('SH601988').then(data => console.log(data))
-// query.indicator('SH601988').then(data => console.log(data))
+// query.cashflow('SH601988', {
+//   is_annals: 0,
+//   count: 10
+// }).then(log)
+query.indicator('SH601988').then(log)
 // query.balance('SH601988').then(data => console.log(data))
 // query.income('SH601988').then(data => console.log(data))
 // query.business('SH601988').then(data => console.log(data))

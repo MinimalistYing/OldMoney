@@ -1,7 +1,7 @@
 exports.ALIAS = {
   status: '当前状态',
   symbol: '股票代码',
-  name: '股票名称',
+  name: '名称',
   avg_price: '当日平均价格',
   current: '当前价',
   high: '当日最高价',
@@ -55,5 +55,12 @@ exports.ALIAS = {
   capital_large: '大单流入/流出',
   capital_medium: '中单流入/流出',
   capital_small: '小单流入/流出',
-  capital_total: '总资金流入/流出'
+  capital_total: '总资金流入/流出',
+
+  ncf_from_oa: '经营活动产生的现金流',
+  ncf_from_oa_ratio: '经营活动产生的现金流同比',
+  ncf_from_ia: '投资活动产生的现金流',
+  ncf_from_ia_ratio: '投资活动产生的现金流同比',
+  ncf_from_fa: '筹资活动产生的现金流',
+  ncf_from_fa_ratio: '筹资活动产生的现金流同比'
 }
