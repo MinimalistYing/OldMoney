@@ -34,7 +34,10 @@ function log (data) {
 //   is_annals: 0,
 //   count: 10
 // }).then(log)
-query.indicator('SH601988').then(log)
+query.indicator('SH601988', {
+  is_annals: 0,
+  count: 10
+}).then(log)
 // query.balance('SH601988').then(data => console.log(data))
 // query.income('SH601988').then(data => console.log(data))
 // query.business('SH601988').then(data => console.log(data))

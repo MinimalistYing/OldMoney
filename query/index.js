@@ -147,3 +147,27 @@ exports.cashflow = async function (symbol, param) {
     }))
   }
 }
+
+exports.indicator = async function (symbol, param) {
+  const data = await source.indicator(symbol, param)
+  console.log(JSON.stringify(data))
+  if (data.error_code === 0) { // 请求成功
+    return data.data.list.map(item => ({
+      time: moment(item.report_date).format('YYYY-MM-DD HH:mm:ss'),
+      name: `${data.data.quote_name}${item.report_name}`,
+      roe: item.avg_roe[0], // 净资产收益率
+      roe_ratio: item.avg_roe[1], // 净资产收益率同比
+      np_per_share: item.np_per_share[0], // 每股净资产
+      np_per_share_ratio: item.np_per_share[1], // 每股净资产同比
+      // 每股现金流为负时说明入不敷出
+      operate_cash_flow_ps: item.operate_cash_flow_ps[0], // 每股现金流
+      operate_cash_flow_ps_ratio: item.operate_cash_flow_ps[1], // 每股现金流同比
+      capital_reserve: item.capital_reserve[0], // 每股资本公积金
+      capital_reserve_ratio: item.capital_reserve[1], // 每股资本公积金同比
+      undistri_profit_ps: item.undistri_profit_ps[0], // 每股未分配利润
+      undistri_profit_ps_ratio: item.undistri_profit_ps[1], // 每股未分配利润同比
+      net_selling_rate: item.net_selling_rate[0], // 净利率
+      net_selling_rate_ratio: item.net_selling_rate[1] // 净利率同比
+    }))
+  }
+}

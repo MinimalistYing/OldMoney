@@ -62,5 +62,18 @@ exports.ALIAS = {
   ncf_from_ia: '投资活动产生的现金流',
   ncf_from_ia_ratio: '投资活动产生的现金流同比',
   ncf_from_fa: '筹资活动产生的现金流',
-  ncf_from_fa_ratio: '筹资活动产生的现金流同比'
+  ncf_from_fa_ratio: '筹资活动产生的现金流同比',
+
+  roe: '净资产收益率',
+  roe_ratio: '净资产收益率同比',
+  np_per_share: '每股净资产',
+  np_per_share_ratio: '每股净资产同比',
+  operate_cash_flow_ps: '每股现金流',
+  operate_cash_flow_ps_ratio: '每股现金流同比',
+  capital_reserve: '每股资本公积金',
+  capital_reserve_ratio: '每股资本公积金同比',
+  undistri_profit_ps: '每股未分配利润',
+  undistri_profit_ps_ratio: '每股未分配利润同比',
+  net_selling_rate: '净利率',
+  net_selling_rate_ratio: '净利率同比'
 }
