@@ -66,3 +66,42 @@ exports.pankou = async function (symbol) {
     sell5: arr[29] + ' - ' + arr[28] // 卖五
   }
 }
+
+exports.margin = async function (symbol, param) {
+  const data = await source.margin(symbol, param)
+  if (data.error_code === 0) { // 请求成功
+    return data.data.items.map(item => ({
+      time: moment(item.td_date).format('YYYY-MM-DD HH:mm:ss'),
+      margin_trading_buy_amt: item.margin_trading_buy_amt, // '融资买入'
+      margin_trading_net_buy_amt: item.margin_trading_net_buy_amt, // '融资净买入'
+      margin_trading_amt_balance: item.margin_trading_amt_balance, // '两融余额'
+      margin_trading_balance: item.margin_trading_balance, // '融资余额'
+      short_selling_amt_balance: item.short_selling_amt_balance // '融券余额'
+    }))
+  }
+}
+
+exports.flow = async function (symbol) {
+  const data = await source.flow(symbol)
+  if (data.error_code === 0) { // 请求成功
+    return data.data.items.map(item => ({
+      time: moment(item.timestamp).format('YYYY-MM-DD HH:mm:ss'),
+      realtime_flow_amount: item.amount // 今日实时资金流入或流出
+    }))
+  }
+}
+
+exports.blocktrans = async function (symbol, param) {
+  const data = await source.blocktrans(symbol, param)
+  if (data.error_code === 0) { // 请求成功
+    return data.data.items.map(item => ({
+      time: moment(item.td_date).format('YYYY-MM-DD HH:mm:ss'),
+      volume: item.vol, // 成交量
+      turn_valomn: item.trans_amt, // 成交额
+      price: item.trans_price, // 成交价
+      premium_rate: item.premium_rat, // 溢价率
+      seller: item.sell_branch_org_name, // 卖方
+      buyer: item.buy_branch_org_name // 买方
+    }))
+  }
+}

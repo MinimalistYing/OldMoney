@@ -36,5 +36,19 @@ exports.ALIAS = {
   sell2: '卖二',
   sell3: '卖三',
   sell4: '卖四',
-  sell5: '卖五'
+  sell5: '卖五',
+
+  margin_trading_buy_amt: '融资买入',
+  margin_trading_net_buy_amt: '融资净买入',
+  margin_trading_amt_balance: '两融余额',
+  margin_trading_balance: '融资余额',
+  short_selling_amt_balance: '融券余额',
+
+  realtime_flow_amount: '今日实时资金流入/流出',
+
+  price: '成交价',
+  turn_valomn: '成交额',
+  premium_rate: '溢价率',
+  seller: '卖方',
+  buyer: '买方'
 }

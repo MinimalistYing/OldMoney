@@ -7,16 +7,23 @@ Object.keys(api).map(key => {
       headers: { Host: 'hq.sinajs.cn' }
     })
   } else {
-    exports[key] = symbol => request.get(api[key], { symbol, extend: 'detail' })
+    exports[key] = (symbol, param) => request.get(api[key], {
+      symbol,
+      extend: 'detail',
+      ...param
+    })
   }
 })
 
-exports.all = symbol => Promise.all(Object.keys(api).map(key => {
+exports.all = (symbol, param) => Promise.all(Object.keys(api).map(key => {
   if (key === 'pankou') {
     return request.get(api[key], symbol.toLowerCase(), {
       headers: { Host: 'hq.sinajs.cn' }
     })
   } else {
-    return request.get(api[key], { symbol })
+    return request.get(api[key], {
+      symbol,
+      ...param
+    })
   }
 }))
