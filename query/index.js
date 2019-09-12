@@ -105,3 +105,28 @@ exports.blocktrans = async function (symbol, param) {
     }))
   }
 }
+
+exports.assort = async function (symbol) {
+  let data = await source.assort(symbol)
+  console.log(JSON.stringify(data))
+  if (data.error_code === 0) { // 请求成功
+    data = data.data
+    return {
+      capital_large: data.sell_large, // 大单流入/流出
+      capital_medium: data.sell_medium, // 中单流入/流出
+      capital_small: data.sell_small, // 小单流入/流出
+      capital_total: data.sell_total, // 总资金流入/流出
+      time: moment(data.timestamp).format('YYYY-MM-DD HH:mm:ss')
+    }
+  }
+}
+
+exports.history = async function (symbol, param) {
+  const data = await source.history(symbol, param)
+  if (data.error_code === 0) { // 请求成功
+    return data.data.items.map(item => ({
+      time: moment(item.timestamp).format('YYYY-MM-DD HH:mm:ss'),
+      capital_total: item.amount // 总资金流入/流出
+    }))
+  }
+}

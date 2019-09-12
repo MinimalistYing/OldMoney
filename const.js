@@ -50,5 +50,10 @@ exports.ALIAS = {
   turn_valomn: '成交额',
   premium_rate: '溢价率',
   seller: '卖方',
-  buyer: '买方'
+  buyer: '买方',
+
+  capital_large: '大单流入/流出',
+  capital_medium: '中单流入/流出',
+  capital_small: '小单流入/流出',
+  capital_total: '总资金流入/流出'
 }

@@ -24,9 +24,11 @@ function log (data) {
 //   size: 10
 // }).then(log)
 // query.flow('SH601988').then(log)
-query.blocktrans('SH601988').then(log)
-// query.assort('SH601988').then(data => console.log(data))
-// query.history('SH601988').then(data => console.log(data))
+// query.blocktrans('SH601988').then(log)
+// query.assort('SH601988').then(log)
+query.history('SH601988', {
+  count: 100
+}).then(log)
 
 // query.cashflow('SH601988').then(data => console.log(data))
 // query.indicator('SH601988').then(data => console.log(data))
