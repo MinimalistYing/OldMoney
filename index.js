@@ -28,7 +28,10 @@ function log (data) {
     })
   }
 }
-// query.quote('SH601988').then(log)
+
+// query.quote('SH601988', {
+//   extend: 'detail'
+// }).then(log)
 // query.pankou('SH601988').then(log)
 
 // query.margin('SH601988', {
@@ -54,22 +57,25 @@ function log (data) {
 //   is_annals: 0,
 //   count: 10
 // }).then(log)
-query.income('SH601988', {
-  is_annals: 0,
-  count: 10
-}).then(log)
-// query.business('SH601988').then(data => console.log(data))
+// query.income('SH601988', {
+//   is_annals: 0,
+//   count: 10
+// }).then(log)
+// query.business('SH601113', {
+//   is_annals: 0,
+//   count: 10
+// }).then(log)
 
-// query.skholderchg('SH601988').then(data => console.log(data))
-// query.skholder('SH601988').then(data => console.log(data))
+query.skholderchg('SH600598', {
+  extend: true,
+  page: 1,
+  size: 50
+}).then(log)
 // query.industry('SH601988').then(data => console.log(data))
 // query.holders('SH601988').then(data => console.log(data))
 // query.bonus('SH601988').then(data => console.log(data))
 // query.change('SH601988').then(data => console.log(data))
 // query.compare('SH601988').then(data => console.log(data))
-// query.analysis('SH601988').then(data => console.log(data))
-// query.shareschg('SH601988').then(data => console.log(data))
 // query.top('SH601988').then(data => console.log(data))
-// query.mainindicator('SH601988').then(data => console.log(data))
 
 // query.all('SH601519').then(data => console.log(data))

@@ -4,6 +4,7 @@ const isURL = require('bape/isURL')
 const isObject = require('bape/isObject')
 
 const OPTIONS = {
+  rejectUnauthorized: false,
   headers: {
     Host: 'stock.xueqiu.com',
     Accept: 'application/json',

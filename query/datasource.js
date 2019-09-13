@@ -9,7 +9,6 @@ Object.keys(api).map(key => {
   } else {
     exports[key] = (symbol, param) => request.get(api[key], {
       symbol,
-      extend: 'detail',
       ...param
     })
   }

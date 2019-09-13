@@ -1,8 +1,8 @@
 const source = require('./datasource')
 const moment = require('moment')
 
-exports.quote = async function (symbol) {
-  const data = await source.quote(symbol)
+exports.quote = async function (symbol, param) {
+  const data = await source.quote(symbol, param)
   if (data.error_code === 0) { // 请求成功
     const { market, quote, others, tags } = data.data
     return {
@@ -189,7 +189,6 @@ exports.balance = async function (symbol, param) {
 
 exports.income = async function (symbol, param) {
   const data = await source.income(symbol, param)
-  console.log(JSON.stringify(data))
   if (data.error_code === 0) { // 请求成功
     return data.data.list.map(item => ({
       time: moment(item.report_date).format('YYYY-MM-DD HH:mm:ss'),
@@ -198,6 +197,33 @@ exports.income = async function (symbol, param) {
       profit_ratio: item.op[1],
       income: item.total_revenue[0], // 营业总收入
       income_ratio: item.total_revenue[1]
+    }))
+  }
+}
+
+exports.business = async function (symbol, param) {
+  const data = await source.business(symbol, param)
+  if (data.error_code === 0) { // 请求成功
+    return data.data.list.map(item => ({
+      time: moment(item.report_date).format('YYYY-MM-DD HH:mm:ss'),
+      name: `${data.data.quote_name}${item.report_name}`,
+      list: item.class_list // @TODO 暂时不作解析
+    }))
+  }
+}
+
+exports.skholderchg = async function (symbol, param) {
+  const data = await source.skholderchg(symbol, param)
+  console.log(JSON.stringify(data))
+  if (data.error_code === 0) { // 请求成功
+    return data.data.items.map(item => ({
+      name: item.name,
+      symbol: item.symbol,
+      time: item.chg_date,
+      volume: item.chg_shares_num, // 成交量
+      price: item.trans_avg_price, // 成交价
+      turn_valomn: item.chg_shares_num * item.trans_avg_price, // 成交额
+      duty: item.duty // 职位
     }))
   }
 }

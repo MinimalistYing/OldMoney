@@ -17,14 +17,10 @@ exports.income = 'finance/cn/income.json' // 利润表
 exports.business = 'finance/cn/business.json' // 主营业务构成
 
 /* 十大股东信息 */
-exports.skholderchg = 'f10/cn/skholderchg.json' //
-exports.skholder = 'f10/cn/skholder.json' //
+exports.skholderchg = 'f10/cn/skholderchg.json' // 高管增减持
 exports.industry = 'f10/cn/industry.json' //
 exports.holders = 'f10/cn/holders.json' // 股东人数
 exports.bonus = 'f10/cn/bonus.json' // 分红融资
 exports.change = 'f10/cn/org_holding/change.json' // 机构持仓
 exports.compare = 'f10/cn/industry/compare.json' // 行业对比
-exports.analysis = 'f10/cn/business_analysis.json' //
-exports.shareschg = 'f10/cn/shareschg.json' //
 exports.top = 'f10/cn/top_holders.json' // 十大股东
-exports.mainindicator = 'f10/cn/indicator.json' // 主要指标
