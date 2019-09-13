@@ -21,5 +21,4 @@ exports.skholderchg = 'f10/cn/skholderchg.json' // 高管增减持
 exports.holders = 'f10/cn/holders.json' // 股东人数
 exports.bonus = 'f10/cn/bonus.json' // 分红融资
 exports.change = 'f10/cn/org_holding/change.json' // 机构持仓
-exports.compare = 'f10/cn/industry/compare.json' // 行业对比
 exports.top = 'f10/cn/top_holders.json' // 十大股东

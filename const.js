@@ -84,5 +84,6 @@ exports.ALIAS = {
 
   dividend_plan: '分红计划',
   institution_num: '机构数量',
-  held_scale: '持股比例'
+  held_scale: '持股比例',
+  held_num: '持股数量'
 }

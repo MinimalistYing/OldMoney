@@ -80,10 +80,9 @@ function log (data) {
 //   page: 1,
 //   size: 50
 // }).then(log)
-query.change('SH601988', {
-  count: 50
-}).then(log)
-// query.compare('SH601988').then(data => console.log(data))
-// query.top('SH601988').then(data => console.log(data))
+// query.change('SH601988', {
+//   count: 50
+// }).then(log)
+// query.top('SH601988').then(log)
 
-// query.all('SH601519').then(data => console.log(data))
+query.all('SH601519').then(log)
