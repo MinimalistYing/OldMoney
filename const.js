@@ -80,6 +80,7 @@ exports.ALIAS = {
   holder: '股东数',
   ashare_holder: 'A股股东数',
   hshare_holder: 'H股股东数',
-  change: '较上期变动'
-  
+  change: '较上期变动',
+
+  dividend_plan: '分红计划'
 }

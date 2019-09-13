@@ -229,7 +229,6 @@ exports.skholderchg = async function (symbol, param) {
 
 exports.holders = async function (symbol, param) {
   const data = await source.holders(symbol, param)
-  console.log(JSON.stringify(data))
   if (data.error_code === 0) { // 请求成功
     return data.data.items.map(item => ({
       holder: item.holder_num, // 股东数
@@ -238,6 +237,17 @@ exports.holders = async function (symbol, param) {
       time: moment(item.timestamp).format('YYYY-MM-DD HH:mm:ss'),
       change: item.chg, // 较上期变动
       price: item.price
+    }))
+  }
+}
+
+exports.bonus = async function (symbol, param) {
+  const data = await source.bonus(symbol, param)
+  console.log(JSON.stringify(data))
+  if (data.error_code === 0) { // 请求成功
+    return data.data.items.map(item => ({
+      name: item.dividend_year,
+      dividend_plan: item.plan_explain // 分红计划
     }))
   }
 }

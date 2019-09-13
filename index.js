@@ -71,12 +71,12 @@ function log (data) {
 //   page: 1,
 //   size: 50
 // }).then(log)
-query.holders('SH601988', {
-  extend: true,
-  page: 1,
-  size: 50
-}).then(log)
-// query.bonus('SH601988').then(data => console.log(data))
+// query.holders('SH601988', {
+//   extend: true,
+//   page: 1,
+//   size: 50
+// }).then(log)
+query.bonus('SH601988').then(data => console.log(data))
 // query.change('SH601988').then(data => console.log(data))
 // query.compare('SH601988').then(data => console.log(data))
 // query.top('SH601988').then(data => console.log(data))
