@@ -11,7 +11,7 @@ const OPTIONS = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36',
     Origin: 'https://xueqiu.com',
     'Accep-Encoding': 'gzip, deflate, br',
-    Cookie: 'xq_a_token=c46b674ae9943534cd503c96a574e92a8b52d979;xq_is_login=1',
+    Cookie: 'xq_a_token=75661393f1556aa7f900df4dc91059df49b83145;xq_is_login=1',
     Connection: 'keep-alive'
   }
 }

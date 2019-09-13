@@ -251,3 +251,18 @@ exports.bonus = async function (symbol, param) {
     }))
   }
 }
+
+exports.change = async function (symbol, param) {
+  const data = await source.change(symbol, param)
+  console.log(JSON.stringify(data))
+  if (data.error_code === 0) { // 请求成功
+    return data.data.items.map(item => ({
+      name: item.chg_date,
+      institution_num: item.institution_num, // 机构数量
+      change: item.chg,
+      price: item.price,
+      time: moment(item.timestamp).format('YYYY-MM-DD HH:mm:ss'),
+      held_scale: item.held_ratio
+    }))
+  }
+}

@@ -82,5 +82,7 @@ exports.ALIAS = {
   hshare_holder: 'H股股东数',
   change: '较上期变动',
 
-  dividend_plan: '分红计划'
+  dividend_plan: '分红计划',
+  institution_num: '机构数量',
+  held_scale: '持股比例'
 }

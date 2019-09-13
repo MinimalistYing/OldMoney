@@ -76,8 +76,13 @@ function log (data) {
 //   page: 1,
 //   size: 50
 // }).then(log)
-query.bonus('SH601988').then(data => console.log(data))
-// query.change('SH601988').then(data => console.log(data))
+// query.bonus('SH601988', {
+//   page: 1,
+//   size: 50
+// }).then(log)
+query.change('SH601988', {
+  count: 50
+}).then(log)
 // query.compare('SH601988').then(data => console.log(data))
 // query.top('SH601988').then(data => console.log(data))
 
