@@ -214,7 +214,6 @@ exports.business = async function (symbol, param) {
 
 exports.skholderchg = async function (symbol, param) {
   const data = await source.skholderchg(symbol, param)
-  console.log(JSON.stringify(data))
   if (data.error_code === 0) { // 请求成功
     return data.data.items.map(item => ({
       name: item.name,
@@ -224,6 +223,21 @@ exports.skholderchg = async function (symbol, param) {
       price: item.trans_avg_price, // 成交价
       turn_valomn: item.chg_shares_num * item.trans_avg_price, // 成交额
       duty: item.duty // 职位
+    }))
+  }
+}
+
+exports.holders = async function (symbol, param) {
+  const data = await source.holders(symbol, param)
+  console.log(JSON.stringify(data))
+  if (data.error_code === 0) { // 请求成功
+    return data.data.items.map(item => ({
+      holder: item.holder_num, // 股东数
+      ashare_holder: item.ashare_holder, // A股股东数
+      hshare_holder: item.hshare_holder, // B股股东数
+      time: moment(item.timestamp).format('YYYY-MM-DD HH:mm:ss'),
+      change: item.chg, // 较上期变动
+      price: item.price
     }))
   }
 }

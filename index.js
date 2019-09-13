@@ -66,13 +66,16 @@ function log (data) {
 //   count: 10
 // }).then(log)
 
-query.skholderchg('SH600598', {
+// query.skholderchg('SH600598', {
+//   extend: true,
+//   page: 1,
+//   size: 50
+// }).then(log)
+query.holders('SH601988', {
   extend: true,
   page: 1,
   size: 50
 }).then(log)
-// query.industry('SH601988').then(data => console.log(data))
-// query.holders('SH601988').then(data => console.log(data))
 // query.bonus('SH601988').then(data => console.log(data))
 // query.change('SH601988').then(data => console.log(data))
 // query.compare('SH601988').then(data => console.log(data))

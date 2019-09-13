@@ -18,7 +18,6 @@ exports.business = 'finance/cn/business.json' // 主营业务构成
 
 /* 十大股东信息 */
 exports.skholderchg = 'f10/cn/skholderchg.json' // 高管增减持
-exports.industry = 'f10/cn/industry.json' //
 exports.holders = 'f10/cn/holders.json' // 股东人数
 exports.bonus = 'f10/cn/bonus.json' // 分红融资
 exports.change = 'f10/cn/org_holding/change.json' // 机构持仓

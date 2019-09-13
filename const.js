@@ -75,5 +75,11 @@ exports.ALIAS = {
   profit: '营业利润',
   income: '营业总收入',
 
-  duty: '职位'
+  duty: '职位',
+
+  holder: '股东数',
+  ashare_holder: 'A股股东数',
+  hshare_holder: 'H股股东数',
+  change: '较上期变动'
+  
 }
