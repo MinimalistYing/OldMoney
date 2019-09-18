@@ -1,88 +1,60 @@
 const query = require('./query')
-const ALIAS = require('./const').ALIAS
+const log = require('./log')
 
-function log (data) {
-  if (Array.isArray(data)) {
-    for (const o of data) {
-      Object.keys(o).map(key => {
-        let suffix = ''
-        const origin = key
-        if (key.endsWith('_ratio')) {
-          key = key.slice(0, key.length - 6)
-          suffix = '同比'
-        }
-        const label = ALIAS[key] || key
-        console.log(label + suffix + ': ' + o[origin])
-      })
-    }
-  } else {
-    Object.keys(data).map(key => {
-      let suffix = ''
-      const origin = key
-      if (key.endsWith('_ratio')) {
-        key = key.slice(0, key.length - 6)
-        suffix = '同比'
-      }
-      const label = ALIAS[key] || key
-      console.log(label + suffix + ': ' + data[origin])
-    })
-  }
-}
+const symbol = process.argv[2] // 股票代码
 
-// query.quote('SH601988', {
-//   extend: 'detail'
-// }).then(log)
-// query.pankou('SH601988').then(log)
+query.quote(symbol, {
+  extend: 'detail'
+}).then(log)
+// query.pankou(symbol).then(log)
 
-// query.margin('SH601988', {
+// query.margin(symbol, {
 //   page: 1,
 //   size: 10
 // }).then(log)
-// query.flow('SH601988').then(log)
-// query.blocktrans('SH601988').then(log)
-// query.assort('SH601988').then(log)
-// query.history('SH601988', {
-//   count: 100
-// }).then(log)
-
-// query.cashflow('SH601988', {
-//   is_annals: 0,
-//   count: 10
-// }).then(log)
-// query.indicator('SH601988', {
-//   is_annals: 0,
-//   count: 10
-// }).then(log)
-// query.balance('SH601988', {
-//   is_annals: 0,
-//   count: 10
-// }).then(log)
-// query.income('SH601988', {
-//   is_annals: 0,
-//   count: 10
-// }).then(log)
-// query.business('SH601113', {
-//   is_annals: 0,
+// query.flow(symbol).then(log)
+// query.blocktrans(symbol).then(log)
+// query.assort(symbol).then(log)
+// query.history(symbol, {
 //   count: 10
 // }).then(log)
 
-// query.skholderchg('SH600598', {
+// query.cashflow(symbol, {
+//   is_annals: 0,
+//   count: 10
+// }).then(log)
+// query.indicator(symbol, {
+//   is_annals: 0,
+//   count: 10
+// }).then(log)
+// query.balance(symbol, {
+//   is_annals: 0,
+//   count: 10
+// }).then(log)
+// query.income(symbol, {
+//   is_annals: 0,
+//   count: 10
+// }).then(log)
+// query.business(symbol, {
+//   is_annals: 0,
+//   count: 10
+// }).then(log)
+
+// query.skholderchg(symbol, {
 //   extend: true,
 //   page: 1,
 //   size: 50
 // }).then(log)
-// query.holders('SH601988', {
+// query.holders(symbol, {
 //   extend: true,
 //   page: 1,
 //   size: 50
 // }).then(log)
-// query.bonus('SH601988', {
+// query.bonus(symbol, {
 //   page: 1,
 //   size: 50
 // }).then(log)
-// query.change('SH601988', {
+// query.change(symbol, {
 //   count: 50
 // }).then(log)
-// query.top('SH601988').then(log)
-
-query.all('SH601519').then(log)
+// query.top(symbol).then(log)

@@ -5,6 +5,7 @@ exports.quote = async function (symbol, param) {
   const data = await source.quote(symbol, param)
   if (data.error_code === 0) { // 请求成功
     const { market, quote, others, tags } = data.data
+
     return {
       status: market.status, // 当前状态
       symbol: quote.symbol, // 股票代码

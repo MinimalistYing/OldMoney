@@ -13,16 +13,3 @@ Object.keys(api).map(key => {
     })
   }
 })
-
-exports.all = (symbol, param) => Promise.all(Object.keys(api).map(key => {
-  if (key === 'pankou') {
-    return request.get(api[key], symbol.toLowerCase(), {
-      headers: { Host: 'hq.sinajs.cn' }
-    })
-  } else {
-    return request.get(api[key], {
-      symbol,
-      ...param
-    })
-  }
-}))
