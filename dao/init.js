@@ -10,13 +10,22 @@ async function init () {
   })
   const db = client.db('stock')
   const collection = await db.collection('basic')
-  for (const stock of ALL_STOCKS) {
+  for (let i = 0; i < ALL_STOCKS.length; i++) {
+    const stock = ALL_STOCKS[i]
+
+    await sleep() // 睡眠 避免请求过于频繁导致雪球服务器禁止访问
+
     const basic = await query.quote(stock.symbol, {
       extend: 'detail'
     })
     await collection.insertOne(basic)
   }
   await client.close()
+}
+
+// 睡眠一秒钟
+function sleep () {
+  return new Promise(resolve => setTimeout(resolve, 1000))
 }
 
 init().catch(e => console.log(e))

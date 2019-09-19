@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fix": "standard --fix"
+    "fix": "standard --fix",
+    "server": "node ./server"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "dependencies": {
     "bape": "^1.1.8",
+    "express": "^4.17.1",
     "moment": "^2.24.0",
     "mongodb": "^3.3.2"
   }
