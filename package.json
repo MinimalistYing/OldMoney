@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "fix": "standard --fix",
-    "server": "node ./server"
+    "server": "node ./server",
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build"
   },
   "repository": {
     "type": "git",
@@ -19,12 +21,29 @@
   },
   "homepage": "https://github.com/MinimalistYing/OldMoney#readme",
   "devDependencies": {
-    "standard": "^14.1.0"
+    "standard": "^14.1.0",
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3",
     "bape": "^1.1.8",
     "express": "^4.17.1",
     "moment": "^2.24.0",
     "mongodb": "^3.3.2"
-  }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }
