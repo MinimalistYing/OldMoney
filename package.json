@@ -29,13 +29,15 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "core-js": "^2.6.5",
-    "vue": "^2.6.10",
-    "vue-router": "^3.0.3",
     "bape": "^1.1.8",
+    "core-js": "^2.6.5",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "moment": "^2.24.0",
-    "mongodb": "^3.3.2"
+    "mongodb": "^3.3.2",
+    "the-fetch": "^1.3.0",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3"
   },
   "postcss": {
     "plugins": {
