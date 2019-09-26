@@ -1,7 +1,6 @@
 <template>
   <div class='about'>
-    <h1>This is an about page</h1>
-    <StockInfo />
+    <StockInfo :info='info' :pledge='pledge' />
   </div>
 </template>
 
@@ -21,15 +20,14 @@ export default {
     }
   },
   methods: {
-    onSelectStock (stock) {
-      console.log(stock)
-    }
   },
-  beforeMount () {
-    console.log(this.$route.params.id)
+  mounted () {
     fetch.get('share-pledge', {
       symbol: this.$route.params.id.slice(2)
-    }).then(res => this.result = res)
+    }).then(res => this.pledge = res)
+    fetch.get('basic-realtime', {
+      symbol: this.$route.params.id
+    }).then(res => this.info = res)
   }
 }
 </script>
